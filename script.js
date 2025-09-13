@@ -1,0 +1,256 @@
+
+const FORM_ENDPOINT = "https://formspree.io/f/xzzagkya";
+const TIDYCAL_URL = "https://tidycal.com/domaide";
+
+const services = [
+  {
+    "id": "drive_s10_liv",
+    "cat": "Courses (Drive)",
+    "name": "Courses jusqu'à 10 articles – Livraison",
+    "price": "10 €",
+    "stripe": "https://buy.stripe.com/test_6oU6oAgbicef7Yr9p0cs800",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "drive_s10_livrang",
+    "cat": "Courses (Drive)",
+    "name": "Courses jusqu'à 10 articles – Livraison + Rangement",
+    "price": "15 €",
+    "stripe": "https://buy.stripe.com/test_00w8wIf7eguv5Qj59ycs801",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "drive_11_20_liv",
+    "cat": "Courses (Drive)",
+    "name": "Courses 11–20 articles – Livraison",
+    "price": "15 €",
+    "stripe": "https://buy.stripe.com/test_6oU9AMaQYa672E76dCcs802",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "drive_11_20_livrang",
+    "cat": "Courses (Drive)",
+    "name": "Courses 11–20 articles – Livraison + Rangement",
+    "price": "20 €",
+    "stripe": "https://buy.stripe.com/test_00w00cf7e5PR6Un8lKcs803",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "drive_20p_liv",
+    "cat": "Courses (Drive)",
+    "name": "Courses + de 20 articles – Livraison",
+    "price": "20 €",
+    "stripe": "https://buy.stripe.com/test_60U3co8IQ2DF1A3dG4cs804",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "drive_20p_livrang",
+    "cat": "Courses (Drive)",
+    "name": "Courses + de 20 articles – Livraison + Rangement",
+    "price": "25 €",
+    "stripe": "https://buy.stripe.com/test_14A28k4sA2DFbaDgSgcs805",
+    "fields": [
+      "store",
+      "store_address",
+      "store_name"
+    ]
+  },
+  {
+    "id": "parapharma",
+    "cat": "Parapharmacie",
+    "name": "Parapharmacie – Livraison",
+    "price": "10 €",
+    "stripe": "https://buy.stripe.com/test_14A6AoA8IQ1zB1A33lqcs806",
+    "fields": [
+      "pharmacy",
+      "pharmacy_address"
+    ]
+  },
+  {
+    "id": "menage1h",
+    "cat": "Ménage & Repassage",
+    "name": "Ménage / repassage – 1 heure",
+    "price": "22 €",
+    "stripe": "https://buy.stripe.com/test_aFa7sE4sA4LNEmPdG4cs807",
+    "fields": []
+  },
+  {
+    "id": "menage2h",
+    "cat": "Ménage & Repassage",
+    "name": "Ménage / repassage – 2 heures",
+    "price": "44 €",
+    "stripe": "https://buy.stripe.com/test_3cI00c2ks7XZ92v59ycs808",
+    "fields": []
+  },
+  {
+    "id": "menage3h",
+    "cat": "Ménage & Repassage",
+    "name": "Ménage / repassage – 3 heures",
+    "price": "66 €",
+    "stripe": "https://buy.stripe.com/test_fZu4gs6A1IzB3IbdG4cs809",
+    "fields": []
+  },
+  {
+    "id": "petitstrav30",
+    "cat": "Petits travaux & Aide informatique",
+    "name": "Petits travaux, aide informatique – 30 min",
+    "price": "11 €",
+    "stripe": "https://buy.stripe.com/test_9B67sEaQYcef5QjatScs80a",
+    "fields": [
+      "custom_request"
+    ]
+  },
+  {
+    "id": "petitstrav1h",
+    "cat": "Petits travaux & Aide informatique",
+    "name": "Petits travaux, aide informatique – 1 heure",
+    "price": "22 €",
+    "stripe": "https://buy.stripe.com/test_8x228k6AlemndI59ycs80b",
+    "fields": [
+      "custom_request"
+    ]
+  },
+  {
+    "id": "compagnie1h",
+    "cat": "Compagnie",
+    "name": "Compagnie – 1 heure",
+    "price": "18 €",
+    "stripe": "https://buy.stripe.com/test_6oU5kwbV2fqrs3IbbxWcs80c",
+    "fields": [
+      "companionship"
+    ]
+  },
+  {
+    "id": "compagnie2h",
+    "cat": "Compagnie",
+    "name": "Compagnie – 2 heures",
+    "price": "36 €",
+    "stripe": "https://buy.stripe.com/test_cNiaEQcZ6cef5QjdG4cs80d",
+    "fields": [
+      "companionship"
+    ]
+  },
+  {
+    "id": "prom1h",
+    "cat": "Promenade / Sortie",
+    "name": "Promenade / sortie (à pied ou transports) – 1h",
+    "price": "18 €",
+    "stripe": "https://buy.stripe.com/test_aFa4gsbV20vxbaD59ycs80e",
+    "fields": []
+  },
+  {
+    "id": "prom2h",
+    "cat": "Promenade / Sortie",
+    "name": "Promenade / sortie (à pied ou transports) – 2h",
+    "price": "36 €",
+    "stripe": "https://buy.stripe.com/test_4gMaEQ0ck3HJ6Un1Xmcs80h",
+    "fields": []
+  },
+  {
+    "id": "accomp1h",
+    "cat": "Accompagnement déplacements",
+    "name": "Accompagnement & assistance (à pied ou transports) – 1h",
+    "price": "18 €",
+    "stripe": "https://buy.stripe.com/test_7sY14g7EMemn7Yr3lqcs80f",
+    "fields": []
+  },
+  {
+    "id": "accomp2h",
+    "cat": "Accompagnement déplacements",
+    "name": "Accompagnement & assistance (à pied ou transports) – 2h",
+    "price": "36 €",
+    "stripe": "https://buy.stripe.com/test_bJe8wl4sAcefbabD31qcs80g",
+    "fields": []
+  },
+  {
+    "id": "repas1h",
+    "cat": "Préparation de repas simples",
+    "name": "Préparation de repas simples (1h)",
+    "price": "20 €",
+    "stripe": "https://buy.stripe.com/test_bJedR28IQdij6Un1Xmcs80i",
+    "fields": [
+      "prep_notes"
+    ]
+  },
+  {
+    "id": "admin30",
+    "cat": "Administratif en ligne",
+    "name": "Accompagnement administratif (CAF, impôts…) – 30 min",
+    "price": "11 €",
+    "stripe": "https://buy.stripe.com/test_cNieV67EMemn92v3lqcs80j",
+    "fields": [
+      "custom_request"
+    ]
+  },
+  {
+    "id": "divers",
+    "cat": "Demandes diverses",
+    "name": "Demandes diverses (sur devis)",
+    "price": "Tarif communiqué après demande",
+    "stripe": "",
+    "fields": [
+      "custom_request",
+      "duration_estimate"
+    ]
+  }
+];
+
+function openModal(serviceId){
+  const s = services.find(x=>x.id===serviceId);
+  if(!s) return;
+  document.getElementById('serviceTitle').textContent = s.name;
+  document.getElementById('serviceId').value = s.id;
+  document.getElementById('serviceName').value = s.name;
+  document.getElementById('serviceStripe').value = s.stripe || "";
+  // Reset conditionals
+  document.querySelectorAll('[data-cond]').forEach(el=>el.style.display='none');
+  // Show specific fields
+  (s.fields||[]).forEach(f=>{
+    const el = document.querySelector(`[data-cond="{}"+f+"]`);
+  });
+  (s.fields||[]).forEach(f=>{
+    const el = document.querySelector(`[data-cond="${f}"]`);
+    if(el) el.style.display = 'block';
+  });
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+  document.getElementById('requestForm').reset();
+}
+
+function payNow(){
+  const stripe = document.getElementById('serviceStripe').value;
+  if(!stripe){ alert("Lien de paiement non défini pour ce service."); return; }
+  window.open(stripe,'_blank');
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('[data-open]').forEach(btn=>{
+    btn.addEventListener('click',()=>openModal(btn.dataset.open));
+  });
+  document.getElementById('closeBtn').addEventListener('click',closeModal);
+  document.getElementById('payBtn').addEventListener('click',payNow);
+  document.getElementById('tidyBtn').addEventListener('click',()=>window.open(TIDYCAL_URL,'_blank'));
+});

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dom’Aide – Services d’aide à la personne</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="logo" src="assets/logo.jpg" alt="Dom’Aide logo">
+      <div>
+        <h1>Dom’Aide</h1>
+        <div class="tagline">Services d’aide à la personne – Mulhouse et alentours</div>
+        <div class="contact">Tél. <a href="tel:+33676892840">07&nbsp;68&nbsp;89&nbsp;28&nbsp;40</a> · 
+          E-mail <a href="mailto:vincentbrennus1@outlook.com">vincentbrennus1@outlook.com</a></div>
+      </div>
+    </header>
+
+    <div class="banner"><strong>Important :</strong> le périmètre d’intervention couvre Mulhouse et alentours (≈10&nbsp;km). Merci de <u>remplir le formulaire</u> puis de <u>réserver un créneau TidyCal</u> avant d’effectuer le paiement Stripe. Bénéficiez de <b>50&nbsp;% de crédit d’impôt</b> sur les prestations d’aide à la personne éligibles.</div>
+    <div class="desc"><span class="badge">À propos</span><br>Dom’Aide est une entreprise familiale basée à Mulhouse, créée par Vincent. Sérieux, ponctuel et à l’écoute, il met ses qualités humaines et son sens du service à votre disposition. En parallèle de son travail principal, il propose ses services d’aide à la personne sur son temps libre : récupération de courses en drive, ménage, repassage, petits travaux, aide informatique et compagnie. Ses disponibilités varient chaque semaine en fonction de son emploi du temps, mais il met toujours un point d’honneur à être fiable et attentif à vos besoins.</div>
+
+    <div class="actions">
+      <button id="tidyBtn" class="btn btn-blue">Réserver un créneau (TidyCal)</button>
+    </div>
+
+    <h2>Prestations & tarifs</h2>
+    <div class="list">
+      
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses jusqu'à 10 articles – Livraison</h3>
+          <div class="price">10 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_s10_liv">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_6oU6oAgbicef7Yr9p0cs800" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses jusqu'à 10 articles – Livraison + Rangement</h3>
+          <div class="price">15 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_s10_livrang">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_00w8wIf7eguv5Qj59ycs801" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses 11–20 articles – Livraison</h3>
+          <div class="price">15 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_11_20_liv">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_6oU9AMaQYa672E76dCcs802" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses 11–20 articles – Livraison + Rangement</h3>
+          <div class="price">20 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_11_20_livrang">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_00w00cf7e5PR6Un8lKcs803" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses + de 20 articles – Livraison</h3>
+          <div class="price">20 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_20p_liv">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_60U3co8IQ2DF1A3dG4cs804" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Courses (Drive)</div>
+          <h3>Courses + de 20 articles – Livraison + Rangement</h3>
+          <div class="price">25 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="drive_20p_livrang">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_14A28k4sA2DFbaDgSgcs805" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Parapharmacie</div>
+          <h3>Parapharmacie – Livraison</h3>
+          <div class="price">10 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="parapharma">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_14A6AoA8IQ1zB1A33lqcs806" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Ménage & Repassage</div>
+          <h3>Ménage / repassage – 1 heure</h3>
+          <div class="price">22 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="menage1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_aFa7sE4sA4LNEmPdG4cs807" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Ménage & Repassage</div>
+          <h3>Ménage / repassage – 2 heures</h3>
+          <div class="price">44 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="menage2h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_3cI00c2ks7XZ92v59ycs808" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Ménage & Repassage</div>
+          <h3>Ménage / repassage – 3 heures</h3>
+          <div class="price">66 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="menage3h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_fZu4gs6A1IzB3IbdG4cs809" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Petits travaux & Aide informatique</div>
+          <h3>Petits travaux, aide informatique – 30 min</h3>
+          <div class="price">11 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="petitstrav30">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_9B67sEaQYcef5QjatScs80a" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Petits travaux & Aide informatique</div>
+          <h3>Petits travaux, aide informatique – 1 heure</h3>
+          <div class="price">22 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="petitstrav1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_8x228k6AlemndI59ycs80b" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Compagnie</div>
+          <h3>Compagnie – 1 heure</h3>
+          <div class="price">18 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="compagnie1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_6oU5kwbV2fqrs3IbbxWcs80c" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Compagnie</div>
+          <h3>Compagnie – 2 heures</h3>
+          <div class="price">36 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="compagnie2h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_cNiaEQcZ6cef5QjdG4cs80d" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Promenade / Sortie</div>
+          <h3>Promenade / sortie (à pied ou transports) – 1h</h3>
+          <div class="price">18 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="prom1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_aFa4gsbV20vxbaD59ycs80e" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Promenade / Sortie</div>
+          <h3>Promenade / sortie (à pied ou transports) – 2h</h3>
+          <div class="price">36 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="prom2h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_4gMaEQ0ck3HJ6Un1Xmcs80h" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Accompagnement déplacements</div>
+          <h3>Accompagnement & assistance (à pied ou transports) – 1h</h3>
+          <div class="price">18 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="accomp1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_7sY14g7EMemn7Yr3lqcs80f" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Accompagnement déplacements</div>
+          <h3>Accompagnement & assistance (à pied ou transports) – 2h</h3>
+          <div class="price">36 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="accomp2h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_bJe8wl4sAcefbabD31qcs80g" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Préparation de repas simples</div>
+          <h3>Préparation de repas simples (1h)</h3>
+          <div class="price">20 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="repas1h">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_bJedR28IQdij6Un1Xmcs80i" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Administratif en ligne</div>
+          <h3>Accompagnement administratif (CAF, impôts…) – 30 min</h3>
+          <div class="price">11 €</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="admin30">Faire une demande</button>
+            <a class="btn btn-blue" href="https://buy.stripe.com/test_cNieV67EMemn92v3lqcs80j" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cat">Demandes diverses</div>
+          <h3>Demandes diverses (sur devis)</h3>
+          <div class="price">Tarif communiqué après demande</div>
+          <div class="actions">
+            <button class="btn btn-green" data-open="divers">Faire une demande</button>
+            <a class="btn btn-blue" href="#" target="_blank" rel="noopener">Payer</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h2>Demande de prestation</h2>
+        <button id="closeBtn" class="btn">Fermer</button>
+      </div>
+      <div class="notice">Merci de <b>réserver votre créneau sur TidyCal</b> après avoir soumis ce formulaire et <b>avant de payer</b>.</div>
+      <form id="requestForm" action="https://formspree.io/f/xzzagkya" method="POST">
+        <input type="hidden" name="service_id" id="serviceId">
+        <input type="hidden" name="service_name" id="serviceName">
+        <input type="hidden" name="service_stripe" id="serviceStripe">
+        <div class="form-grid">
+          <div>
+            <label>Nom</label>
+            <input required name="nom">
+          </div>
+          <div>
+            <label>Prénom</label>
+            <input required name="prenom">
+          </div>
+          <div>
+            <label>Téléphone</label>
+            <input required name="telephone" type="tel" inputmode="tel">
+          </div>
+          <div>
+            <label>Date/heure (créneau TidyCal souhaité)</label>
+            <input required name="date_heure" type="datetime-local">
+          </div>
+          <div class="full">
+            <label>Adresse</label>
+            <input required name="adresse">
+          </div>
+
+          <!-- Conditional: store -->
+          <div class="full" data-cond="store" style="display:none">
+            <label>Magasin (Drive)</label>
+            <input name="magasin">
+          </div>
+          <div data-cond="store_address" style="display:none">
+            <label>Adresse du magasin</label>
+            <input name="adresse_magasin">
+          </div>
+          <div data-cond="store_name" style="display:none">
+            <label>Nom de réservation</label>
+            <input name="nom_reservation">
+          </div>
+
+          <!-- Conditional: pharmacy -->
+          <div class="full" data-cond="pharmacy" style="display:none">
+            <label>Pharmacie</label>
+            <input name="pharmacie">
+          </div>
+          <div class="full" data-cond="pharmacy_address" style="display:none">
+            <label>Adresse de la pharmacie</label>
+            <input name="adresse_pharmacie">
+          </div>
+
+          <!-- Conditional: custom_request -->
+          <div class="full" data-cond="custom_request" style="display:none">
+            <label>Objet de la demande</label>
+            <input name="objet_demande">
+          </div>
+
+          <!-- Conditional: duration estimate -->
+          <div data-cond="duration_estimate" style="display:none">
+            <label>Durée estimée</label>
+            <input name="duree_estimee" placeholder="ex. 1h30">
+          </div>
+
+          <!-- Conditional: prep notes -->
+          <div class="full" data-cond="prep_notes" style="display:none">
+            <label>Préparation repas — précisions</label>
+            <textarea name="repas_notes" placeholder="épluchage, cuisson simple, petits plats rapides…"></textarea>
+          </div>
+
+          <!-- Conditional: companionship -->
+          <div class="full" data-cond="companionship" style="display:none">
+            <label>Activités souhaitées</label>
+            <input name="activites" placeholder="discussion, jeux de société, lecture…">
+          </div>
+
+          <div class="full">
+            <label>Notes / informations diverses</label>
+            <textarea name="notes"></textarea>
+          </div>
+        </div>
+
+        <div class="actions" style="justify-content:flex-end;margin-top:14px">
+          <button type="submit" class="btn btn-green">Envoyer la demande</button>
+          <button type="button" id="payBtn" class="btn btn-blue">Payer maintenant</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
