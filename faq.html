@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ – Dom’Aide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section faq-accordion">
+    <h1>Foire aux questions</h1>
+
+    <div class="item">
+      <div class="question">Qu’est-ce que Dom’Aide ?</div>
+      <div class="answer">Dom’Aide est une entreprise familiale basée à Mulhouse, créée par Vincent et sa femme. Ponctuel, fiable, à l’écoute.</div>
+    </div>
+
+    <div class="item">
+      <div class="question">Quels sont vos moyens de paiement ?</div>
+      <div class="answer">Paiement en ligne sécurisé via Stripe. En cas d’impossibilité, un règlement en espèces est possible lors de l’intervention à domicile.</div>
+    </div>
+
+    <div class="item">
+      <div class="question">Quels sont vos horaires ?</div>
+      <div class="answer">Horaires variables (Dom’Aide n’est pas l’activité principale). Merci de réserver vos créneaux via TidyCal.</div>
+    </div>
+
+    <div class="item">
+      <div class="question">Périmètre d’intervention</div>
+      <div class="answer">Zone principale : Mulhouse et ~10 km. Au‑delà, demande préalable avant paiement ; faisabilité et tarif selon la distance.</div>
+    </div>
+
+    <div class="item">
+      <div class="question">Prestations non listées</div>
+      <div class="answer">Utilisez “Demandes diverses”. Chaque demande est étudiée pour une réponse adaptée.</div>
+    </div>
+
+    <div class="item">
+      <div class="question">Politique d’annulation</div>
+      <div class="answer">Annulation gratuite ≥ 24 h avant. Passé ce délai, la première heure est due.</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Dom’Aide – Mulhouse et alentours</p>
+    </div>
+  </footer>
+
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.faq-accordion .question').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.parentElement;
+      item.classList.toggle('open');
+      const ans = q.nextElementSibling;
+      if(ans.style.maxHeight){ ans.style.maxHeight=null; }
+      else { ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+  </script>
+</body>
+</html>

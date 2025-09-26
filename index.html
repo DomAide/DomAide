@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dom’Aide – Aide à la personne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1758915092" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-primary btn-tidycal" href="https://tidycal.com/domaide" target="_blank" rel="noopener">
+        <span class="icon">📅</span> Réserver un créneau (TidyCal)
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <img src="assets/logo.png" alt="Logo Dom’Aide" class="hero-logo" />
+      <h1 class="hero-title">Dom’Aide</h1>
+      <p class="hero-subtitle">Services d’aide à la personne</p>
+      <p class="hero-slogan">Ponctuel • Fiable • À l’écoute</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="container section about">
+      <h2>À propos de Dom’Aide</h2>
+      <p>Dom’Aide est une entreprise familiale basée à Mulhouse, créée par Vincent et sa femme. Spécialisée dans les services d’aide à la personne, Dom’Aide se distingue par sa ponctualité, sa fiabilité et son sens de l’écoute. Notre objectif : proposer des prestations flexibles et de proximité, adaptées aux besoins du quotidien, tout en garantissant un accompagnement humain et de qualité.</p>
+    </section>
+
+    <section class="container grid">
+      <article class="card service" data-target="courses">
+        <div class="icon">🛒</div>
+        <h3>Courses &amp; Parapharmacie</h3>
+        <p>Récupération de commandes Drive et en boutique.</p>
+        <a class="price-badge" href="tarifs.html?service=courses">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="travaux">
+        <div class="icon">🛠️</div>
+        <h3>Petits Travaux</h3>
+        <p>Montage, petits bricolages, dépannages simples.</p>
+        <a class="price-badge" href="tarifs.html?service=travaux">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="informatique">
+        <div class="icon">💻</div>
+        <h3>Aide Informatique</h3>
+        <p>Mise en route, sauvegarde, petites pannes.</p>
+        <a class="price-badge" href="tarifs.html?service=informatique">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="menage">
+        <div class="icon">🧹</div>
+        <h3>Ménage &amp; Repassage</h3>
+        <p>Prestation ponctuelle à domicile.</p>
+        <a class="price-badge" href="tarifs.html?service=menage">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="repas">
+        <div class="icon">🍲</div>
+        <h3>Préparation de repas simples</h3>
+        <p>Aide en cuisine et organisation.</p>
+        <a class="price-badge" href="tarifs.html?service=repas">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="accompagnement">
+        <div class="icon">🚶</div>
+        <h3>Accompagnement / sorties / compagnie</h3>
+        <p>Promenades, déplacements, compagnie.</p>
+        <a class="price-badge" href="tarifs.html?service=accompagnement">voir tarifs</a>
+      </article>
+      <article class="card service" data-target="divers">
+        <div class="icon">✨</div>
+        <h3>Demandes diverses</h3>
+        <p>Autres besoins du quotidien.</p>
+        <a class="price-badge" href="tarifs.html?service=divers">voir tarifs</a>
+      </article>
+    </section>
+
+    <section class="container notice">
+      <div class="notice-box">
+        <strong>Important&nbsp;:</strong> périmètre d’intervention ≈ 10&nbsp;km autour de Mulhouse.
+        Merci de <strong>réserver un créneau (TidyCal)</strong> puis de <strong>remplir le formulaire</strong>,
+        avant d’effectuer le <strong>paiement Stripe</strong>.
+      </div>
+    </section>
+
+    <div class="container">
+      
+        <div class="step active"><span class="num">2</span> Demande</div>
+        <div class="step"><span class="num">3</span> Paiement</div>
+      </div>
+    </div>
+    <section id="demande" class="container form-section">
+      <h2>Faire une demande</h2>
+      <p class="hint">🗓️ Pensez à réserver votre créneau sur TidyCal avant de soumettre ce formulaire.</p>
+
+      <form id="requestForm" class="card form-card" novalidate>
+        <div class="form-grid">
+          <label>Nom et prénom
+            <input type="text" name="name" required>
+          </label>
+          <label>Téléphone
+            <input type="tel" name="phone" required>
+          </label>
+          <label>E-mail
+            <input type="email" name="email" required>
+          </label>
+          <label>Adresse d’intervention
+            <input type="text" name="address" required>
+          </label>
+
+          <label>Type de prestation
+            <select name="service" id="serviceSelect" required>
+              <option value="">— Sélectionner —</option>
+              <option value="courses">Courses &amp; Parapharmacie</option>
+              <option value="travaux">Petits Travaux</option>
+              <option value="informatique">Aide Informatique</option>
+              <option value="menage">Ménage &amp; Repassage</option>
+              <option value="repas">Préparation de repas simples</option>
+              <option value="divers">Demandes diverses</option>
+              <option value="accompagnement">Accompagnement / sorties / compagnie</option>
+              <option value="administratif">Accompagnement administratif en ligne</option>
+            </select>
+          </label>
+
+          <div class="conditional" data-service="courses">
+            <label>Nom et adresse du magasin
+              <input type="text" name="magasin" placeholder="Ex. Carrefour Drive – 10 rue Exemple, Mulhouse">
+            </label>
+            <label>Nom de réservation (si Drive)
+              <input type="text" name="reservation_name" placeholder="Nom indiqué lors de la commande">
+            </label>
+            <label>Horaire de retrait
+              <input type="text" name="pickup_time" placeholder="Ex. vendredi 16h30">
+            </label>
+          </div>
+
+          <div class="conditional" data-service="travaux">
+            <label>Nature de la demande
+              <textarea name="travaux_details" rows="3" placeholder="Ex. Fixer une tringle, changer un joint…"></textarea>
+            </label>
+          </div>
+
+          <div class="conditional" data-service="informatique">
+            <label>Nature de la demande
+              <textarea name="it_details" rows="3" placeholder="Ex. Nettoyage PC, sauvegarde photos, Wi-Fi…"></textarea>
+            </label>
+          </div>
+
+          <div class="conditional" data-service="repas">
+            <label>Plat souhaité ou type d’aide en cuisine
+              <textarea name="repas_details" rows="3" placeholder="Ex. Préparer un batch de soupes, aide pour un repas équilibré…"></textarea>
+            </label>
+          </div>
+
+          <div class="conditional" data-service="divers">
+            <label>Nature de la demande
+              <input type="text" name="divers_nature" placeholder="Ex. aide administrative, bricolage, etc.">
+            </label>
+            <label>Description de la demande
+              <textarea name="divers_details" rows="3" placeholder="Décrivez précisément votre besoin"></textarea>
+            </label>
+            <label>Nature de la demande
+              <textarea name="divers_details" rows="3" placeholder="Décrivez votre besoin"></textarea>
+            </label>
+          </div>
+
+          <label>Informations utiles
+            <textarea name="details" rows="4" placeholder="Codes d’accès, stationnement, contraintes horaires…"></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Envoyer la demande</button>
+          <a class="btn btn-ghost" href="https://tidycal.com/domaide" target="_blank" rel="noopener"><span class="icon">📅</span> Réserver sur TidyCal</a>
+        </div>
+        <p class="small">Après envoi, vous pourrez accéder au paiement Stripe depuis la page Tarifs.</p>
+      </form>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Fermer" data-close-modal>×</button>
+      <h3>Merci 🙏</h3>
+      <p>Votre demande a bien été envoyée. Nous revenons vers vous rapidement pour confirmer les détails.</p>
+      <p><a class="btn btn-primary" href="tarifs.html">Retourner à la page Tarifs</a></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Dom’Aide – Mulhouse et alentours</p>
+      <p class="rgpd">Vos données sont utilisées uniquement pour traiter votre demande. <a href="confidentialite.html">Données & confidentialité</a></p>
+    </div>
+  </footer>
+
+  <script>
+  const serviceSelect = document.getElementById('serviceSelect');
+  const conditionals = document.querySelectorAll('.conditional');
+  const form = document.getElementById('requestForm');
+  const modal = document.getElementById('modal');
+  const GSCRIPT_WEBAPP_URL = "PASTE_YOUR_WEBAPP_URL_HERE";
+
+  function updateConditional(){
+    const val = serviceSelect.value;
+    conditionals.forEach(block=>{
+      const match = block.getAttribute('data-service');
+      block.style.display = (match === val) ? 'block' : 'none';
+    });
+  }
+  serviceSelect.addEventListener('change', updateConditional);
+
+  function openModal(){ modal.setAttribute('aria-hidden','false'); }
+  function closeModal(){ modal.setAttribute('aria-hidden','true'); }
+  document.querySelectorAll('[data-close-modal]').forEach(el=>el.addEventListener('click', closeModal));
+
+  \1
+    // Update steps on index: mark step 3 active
+    document.querySelectorAll('.steps .step').forEach(s=>s.classList.remove('active'));
+    const steps = document.querySelectorAll('.steps .step');
+    if(steps[2]) steps[2].classList.add('active');
+    form.reset();
+    updateConditional();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  updateConditional();
+  </script>
+</body>
+</html>

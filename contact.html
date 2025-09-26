@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact – Dom’Aide</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <section class="container form-section">
+    <h1>Contact</h1>
+    <p class="hint">Pour toute question concernant Dom’Aide, les prestations proposées, ou des précisions (périmètre desservi, horaires, tarifs…), merci de nous écrire via ce formulaire. Nous vous répondrons au plus vite.</p>
+    <form id="contactForm" class="card form-card" novalidate>
+      <div class="form-grid">
+        <label>Nom et prénom
+          <input type="text" name="name" required>
+        </label>
+        <label>E-mail
+          <input type="email" name="email" required>
+        </label>
+        <label>Téléphone
+          <input type="tel" name="phone">
+        </label>
+        <label>Votre message
+          <textarea name="message" rows="5" required placeholder="Votre question…"></textarea>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </div>
+    </form>
+  </section>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Fermer" data-close-modal>×</button>
+      <h3>Merci 🙏</h3>
+      <p>Votre message a bien été envoyé. Nous revenons vers vous rapidement.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Dom’Aide – Mulhouse et alentours</p>
+      <p class="rgpd">Vos données sont utilisées uniquement pour traiter votre demande. <a href="confidentialite.html">Données & confidentialité</a></p>
+    </div>
+  </footer>
+
+  <script>
+  const form = document.getElementById('contactForm');
+  const modal = document.getElementById('modal');
+  function openModal(){ modal.setAttribute('aria-hidden','false'); }
+  function closeModal(){ modal.setAttribute('aria-hidden','true'); }
+  document.querySelectorAll('[data-close-modal]').forEach(el=>el.addEventListener('click', closeModal));
+
+  const GSCRIPT_WEBAPP_URL = "PASTE_YOUR_WEBAPP_URL_HERE";
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const fd = new FormData(form);
+    fd.append('formType','contact');
+    try{
+      if(GSCRIPT_WEBAPP_URL && !GSCRIPT_WEBAPP_URL.startsWith('PASTE_')){
+        await fetch(GSCRIPT_WEBAPP_URL, { method:'POST', body: fd });
+      }
+    }catch(err){ console.error(err); }
+    openModal();
+    form.reset();
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body></html>

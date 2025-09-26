@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarifs – Dom’Aide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="https://tidycal.com/domaide" target="_blank" rel="noopener"><span class="icon">📅</span> Réserver</a>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1>Tarifs</h1>
+    <div class="steps">
+      <div class="step"><span class="num">1</span> Réserver (TidyCal)</div>
+      <div class="step active"><span class="num">2</span> Demande</div>
+      <div class="step"><span class="num">3</span> Paiement</div>
+    </div>
+    <div id="gate" class="notice-inline">
+      Pour accéder au paiement, merci de remplir d’abord le formulaire <a href="index.html#demande"><strong>“Faire une demande”</strong></a>. Les boutons de paiement s’activeront ensuite automatiquement.
+    </div>
+
+    <div class="listing">
+      <h2 id="courses" class="section-title theme-blue">🛒 Courses &amp; Parapharmacie</h2>
+      <ul>
+        <li>Jusqu’à 10 articles – livraison – 10€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Jusqu’à 10 articles – livraison + rangement – 15€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>11–20 articles – livraison – 15€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>11–20 articles – livraison + rangement – 20€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>+20 articles – livraison – 20€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>+20 articles – livraison + rangement – 25€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Parapharmacie – livraison – 10€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+
+      <h2 id="travaux" class="section-title theme-orange">🛠️ Petits travaux</h2>
+      <ul>
+        <li>30 min – 11€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>1 h – 22€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+
+      <h2 id="informatique" class="section-title theme-purple">💻 Aide informatique</h2>
+      <ul>
+        <li>30 min – 11€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>1 h – 22€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+
+      <h2 id="menage" class="section-title theme-teal">🧹 Ménage &amp; repassage</h2>
+      <ul>
+        <li>1 h – 22€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>2 h – 44€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>3 h – 66€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+
+      <h2 id="repas" class="section-title theme-green">🍲 Préparation de repas simples</h2>
+      <ul>
+        <li>1 h – 20€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+
+      <h2 id="accompagnement" class="section-title theme-pink">🚶 Accompagnement / sorties / compagnie</h2>
+      <ul>
+        <li>Promenade – 1 h – 18€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Promenade – 2 h – 36€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Déplacements – 1 h – 18€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Déplacements – 2 h – 36€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Compagnie – 1 h – 18€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+        <li>Compagnie – 2 h – 36€ <span class="lock-msg">🔒 Envoyez d’abord le formulaire</span></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Dom’Aide – Mulhouse et alentours</p>
+      <p class="rgpd">Vos données sont utilisées uniquement pour traiter votre demande. <a href="confidentialite.html">Données & confidentialité</a></p>
+    </div>
+  </footer>
+
+  
+  <script>
+  const submitted = sessionStorage.getItem('requestSubmitted') === '1';
+  const gate = document.getElementById('gate');
+  document.querySelectorAll('.pay').forEach(btn=>{
+    const lockedLabel = '🔒 Payer';
+    const unlockedLabel = '💳 Payer';
+    const lockMsg = btn.nextElementSibling && btn.nextElementSibling.classList.contains('lock-msg') ? btn.nextElementSibling : null;
+    if(submitted){
+      btn.classList.remove('locked');
+      btn.textContent = unlockedLabel;
+      if(lockMsg) lockMsg.style.display = 'none';
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        window.open(btn.dataset.url, '_blank');
+      }, { once:true });
+    }else{
+      btn.classList.add('locked');
+      btn.textContent = lockedLabel;
+      if(lockMsg) lockMsg.style.display = 'block';
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        alert('Merci de remplir d’abord le formulaire “Faire une demande” (Accueil) pour activer le paiement.');
+      });
+    }
+  });
+  if(submitted){
+    gate.textContent = 'Le formulaire a été envoyé ✔️ Vous pouvez procéder au paiement en cliquant sur “Payer”.';
+    gate.style.background = '#ecfdf5';
+    gate.style.borderColor = '#86efac';
+    gate.style.color = '#065f46';
+    // Update steps: mark step 3 active
+    const steps = document.querySelectorAll('.step');
+    steps.forEach(s=>s.classList.remove('active'));
+    if(steps[2]) steps[2].classList.add('active');
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll to service if query param present
+  const params = new URLSearchParams(window.location.search);
+  const s = params.get('service');
+  if(s){
+    const el = document.getElementById(s);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+  </script>
+
+</body>
+</html>
